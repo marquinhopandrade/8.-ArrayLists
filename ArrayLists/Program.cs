@@ -22,11 +22,36 @@ namespace ArrayLists
 
             //delete element with specific entry from the arraylist
             myArrayList.Remove(13);
+            myArrayList.Remove(13);
             //delete element at specific position or index
             myArrayList.RemoveAt(0);
             /*delete element at specific range (a partir de qual posição deve remover, quantos numeros a partir da posição)
-            no caso RemoveRange(4,2), a partir da posição 3 (13) serão removidos (2) dois valores a frente (no caso o 128 e o 25.3) */
-            myArrayList.RemoveRange(4,2);
+            no caso RemoveRange(4,2), a partir da posição 2 (13.37) serão removidos (2) dois valores a frente (no caso o 13 e o 128) */
+            myArrayList.RemoveRange(3, 2);
+
+            //------------------------- Count -----------------------------//
+            Console.WriteLine(myArrayList.Count);
+
+            double sum = 0;
+
+            foreach (object obj in myArrayList)
+            {
+                if (obj is int)
+                {
+                    sum += Convert.ToDouble(obj);
+                    //pega os int e transforma em double
+                }
+                else if (obj is double)
+                {
+                    sum += (double)obj;
+                }
+                else if (obj is string)
+                {
+                    Console.WriteLine(obj);
+                }
+            }
+            Console.WriteLine(sum);
+            Console.ReadKey();
         }
     }
 }
